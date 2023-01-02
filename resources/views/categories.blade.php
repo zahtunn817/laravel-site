@@ -7,7 +7,7 @@
     <ul>
         <li>
             <h2>
-                <a href="/posts?category={{ $category->slug }}" class="text-decoration-none">{{ $category->name }}</a>
+                <a href="/posts?category={{ $category->slug }}" class="text-decoration-none text-dark">{{ $category->name }}</a>
             </h2>
         </li>
     </ul>

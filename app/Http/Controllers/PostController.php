@@ -8,10 +8,11 @@ use App\Models\Post;
 class PostController extends Controller
 {
     public function index(){
+
         return view('posts', [
             "tittle" => "All Posts",
             "active" => "post",
-            "posts" => Post::with(['user', 'category'])->latest()->filter(request(['search', 'category']))->paginate(7)->withQueryString()
+            "posts" => Post::with(['category', 'user'])->latest()->filter(request(['search', 'category', 'user']))->paginate(9)->withQueryString()
         ]);
     }
 

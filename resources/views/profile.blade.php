@@ -1,22 +1,14 @@
 @extends('layouts.main')
 
 @section('content')
-    <h1 class="mb-4 text-center">{{ $tittle }}</h1>
+    <h1 class="mb-4">Profile</h1>
+    <h3>{{ $tittle }}</h3>
 
-    <div class="row justify-content-center mb-3">
-        <div class="col-md-6">
-            <form action="/posts">
-                @if (request('category'))
-                <input type="hidden" name="category" value="{{ request('category') }}">
-                @endif
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Search..." name="search" value="{{ request('search') }}">
-                    <button class="btn btn-danger" type="submit">Search</button>
-                </div>
-            </form>
-        </div>
-    </div>
-    
+    <h3>{{ $post->user->username }}</h3>
+    <p>{{ $post->user->name }}</p>
+    <p>{{ $post->user->email }}</p>
+
+
     <div class="container">
         <div class="row">
             @foreach ($posts as $post)
@@ -34,7 +26,7 @@
                             <h5 class="card-tittle">{{ $post->tittle }}</h5>
                             <p>
                                 <small>
-                                    By. <a href="/user/{{ $post->user->username }}" class="text-decoration-none">{{ $post->user->name }}</a> {{ $post->created_at->diffForHumans() }}
+                                    By. <a href="/posts?author={{ $post->user->username }}" class="text-decoration-none">{{ $post->user->name }}</a> {{ $post->created_at->diffForHumans() }}
 
                                     {{-- <p>{{ substr($post->body,3,50).'...' }}</p> --}}
 
@@ -49,5 +41,5 @@
         </div>
     </div>
 
-    {{ $posts->links() }}
 @endsection
+    

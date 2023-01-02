@@ -2,8 +2,8 @@
 
 @section('content')
     <h1 class="mb-4">Halaman About</h1>
-    <h3>{{ $name }}</h3>
-    <p>{{ $email }}</p>
-    <p>{{ $desc }}</p>
+    <h3>{{ auth()->user()->username }}</h3>
+    <p>{{ auth()->user()->name }}</p>
+    <p>{{ auth()->user()->email }}</p>
 @endsection
     

@@ -17,7 +17,7 @@ class LoginController extends Controller
 
     public function authenticate(Request $request){
         $credentials = $request->validate([
-            'email'=>['required','email:dns'],
+            'username'=>['required'],
             'password'=>'required'
         ]);
 
@@ -28,8 +28,11 @@ class LoginController extends Controller
 
         return back()->with('loginError','Login failed!');
     }
+
+    public function logout(){
+        Auth::logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+        return redirect('/');
+    }
 }
-
-
-//! SEARCH CATEGORY AND TITTLE AT THE SAME TIME
-//TODO - FIX THAT MF
