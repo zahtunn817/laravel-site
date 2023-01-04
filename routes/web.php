@@ -64,21 +64,15 @@ Route::get('/categories/{category:slug}', function(Category $category){
     ]);
 });
 
-Route::get('/author/{user:username}', function(User $user){
-    return view('posts', [
-        'tittle'=> 'Posts by '.$user->name,
-        'posts'=> $user->posts->load('category','user'),
-        'active'=>'post'
-    ]);
-});
+// Route::get('/author/{user:username}', function(User $user){
+//     return view('posts', [
+//         'tittle'=> 'Posts by '.$user->name,
+//         'posts'=> $user->posts->load('category','user'),
+//         'active'=>'post'
+//     ]);
+// });
 
-Route::get('/user/{user:username}', function(User $user){
-    return view('profile', [
-        'tittle'=> 'Posts by '.$user->name,
-        'posts'=> $user->posts->load('user'),
-        'active'=>'post'
-    ]);
-});
+Route::get('/user/{user:username}', [PostController::class, 'user']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);

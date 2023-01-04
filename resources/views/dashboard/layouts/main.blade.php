@@ -45,6 +45,6 @@
 
         <script>
             feather.replace()
-       </script>
+        </script>
     </body>
 </html>

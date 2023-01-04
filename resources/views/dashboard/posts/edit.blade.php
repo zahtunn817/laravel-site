@@ -39,11 +39,11 @@
         <div class="mb-3">
           <label for="image" class="form-label">Post Image</label>
           @if ($post->image)
-          <p>You have an image already. Wanna change it?</p>
+            <img src="{{ asset('storage/' . $post->image) }}" alt="" class="img-preview img-fluid mb-3 col-sm-5 d-block">            
           @else
-          <p>You have no image. Wanna add one?</p>
+            <img src="" alt="" class="img-preview img-fluid mb-3 col-sm-5">
           @endif
-          <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image">
+          <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" onchange="previewImage()">
           @error('image')
               <div class="invalid-feedback">{{ $message }}</div>
           @enderror
@@ -73,6 +73,20 @@
     .then(response => response.json())
     .then(data => slug.value = data.slug)
   });
+
+  function previewImage(){
+    const image = document.querySelector('#image');
+    const imgPreview = document.querySelector('.img-preview');
+
+    imgPreview.style.display = 'block';
+
+    const oFReader = new FileReader();
+    oFReader.readAsDataURL(image.files[0]);
+
+    oFReader.onload = function(oFREvent){
+      imgPreview.src = oFREvent.target.result;
+    }
+  }
 </script>
 
 @endsection

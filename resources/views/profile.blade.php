@@ -2,14 +2,23 @@
 
 @section('content')
     <h1 class="mb-4">Profile</h1>
-    <h3>{{ $tittle }}</h3>
-
-    <h3>{{ $post->user->username }}</h3>
-    <p>{{ $post->user->name }}</p>
-    <p>{{ $post->user->email }}</p>
-
 
     <div class="container">
+            <div class="card p-3" style="width: 18rem;">
+                <img src="https://source.unsplash.com/500x500?profile" class="card-img img-thumbnail rounded-circle" alt="...">
+
+                <ul class="list-group list-group-flush mt-3">
+                    <li class="list-group-item"><strong>{{ $name }}</strong></li>
+                    <li class="list-group-item">{{ $username }}</li>
+                    <li class="list-group-item">{{ $email }}</li>
+                    <li class="list-group-item"><small>{{ $about }}</small></li>
+                </ul>
+            </div>
+    </div>
+    
+    
+    <div class="container mt-5">
+        <h3>{{ $tittle }}</h3>
         <div class="row">
             @foreach ($posts as $post)
                 <div class="col-md-4 mb-3">
@@ -26,7 +35,7 @@
                             <h5 class="card-tittle">{{ $post->tittle }}</h5>
                             <p>
                                 <small>
-                                    By. <a href="/posts?author={{ $post->user->username }}" class="text-decoration-none">{{ $post->user->name }}</a> {{ $post->created_at->diffForHumans() }}
+                                    By. <a href="/user/{{ $post->user->username }}" class="text-decoration-none">{{ $post->user->name }}</a> {{ $post->created_at->diffForHumans() }}
 
                                     {{-- <p>{{ substr($post->body,3,50).'...' }}</p> --}}
 

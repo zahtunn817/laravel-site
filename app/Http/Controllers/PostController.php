@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\User;
 
 class PostController extends Controller
 {
@@ -21,6 +22,18 @@ class PostController extends Controller
             "tittle" => "Single Post",
             "active" => "post",
             "post" => $post
+        ]);
+    }
+
+    public function user(User $user){
+        return view('profile', [
+            'tittle'=> 'Posts by '.$user->name,
+            'posts'=> $user->posts->load('user'),
+            'active'=>'post',
+            'name' => $user->name,
+            'username' => $user->username,
+            'email' => $user->email,
+            'about' => 'writer'
         ]);
     }
 }
