@@ -36,6 +36,3 @@
 </article>
 
 @endsection
-
-{{-- ! BUTTONNYA TIDAK KELUAR ICON --}}
-{{-- TODO BENERIN LAH eps17 --}}

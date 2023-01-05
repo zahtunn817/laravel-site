@@ -13,9 +13,6 @@
     <link rel="stylesheet" href="style.css">
 
     <title>HiRenJi Blog | {{ $tittle }}</title>
-
-    <script src="https://unpkg.com/feather-icons"></script>
-
   </head>
   <body>
 

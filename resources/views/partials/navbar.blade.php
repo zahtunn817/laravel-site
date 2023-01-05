@@ -30,19 +30,23 @@
 
         <ul class="navbar-nav ms-auto">
           @auth
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Halo, {{ auth()->user()->name }}
+            <li class="nav-item dropdown me-3">
+              <a class="nav-link dropdown-toggle {{ ($active === "write") ? 'active' : '' }}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Write
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-sidebar-reverse">  </i>My Dashboard</a></li>
+                <li><a class="dropdown-item" href="/dashboard/posts/create"><i class="bi bi-plus-square">  </i>New Post</a></li>
+                <li><a class="dropdown-item" href="/myposts"><i class="bi bi-pencil">  </i>My Posts</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li>
-                  <form action="/logout" method="post">
-                    @csrf
-                    <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right">  </i>Logout</button>
-                  </form>
+                <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-sidebar-reverse">  </i>My Dashboard</a></li>
+                 
               </ul>
+            </li>
+            <li class="nav-item">
+              <form action="/logout" method="post">
+                @csrf
+                <button type="submit" class="nav-link" style="background: none; border: none;"><i class="bi bi-box-arrow-right">  </i>Logout</button>
+              </form>
             </li>
           @else
             <li class="nav-item">

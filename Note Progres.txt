@@ -1,0 +1,30 @@
+NOTE PROGRES agar aku tak lupa
+
+- Home
+Masih kosong
+
+- About
+Belum bisa edit profil. Harus menambahkan tabel 'about' dan 'profile pic' sepertiya.
+
+- Post
+Searching sesuai kategori, melihat profil author
+
+- Category
+Ga ada yang berubah
+
+AUTH
+- Write (New post) -> masih belum di buat halaman new postnya, sementara di alihkan ke dashboard
+	(My Posts) -> edit dan create juga masih di figure out
+
+- Logout
+ga ada yang berubah
+
+Guest
+
+- About di hilangkan
+
+- Login -> tidak ada yang berubah
+
+
+NOTE! masih berantakan harus di perbaiki lagi. Ganbare ore!
+
