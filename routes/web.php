@@ -7,7 +7,7 @@ use App\Models\User;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardPostController;
-use App\Http\Controllers\MyPostController;
+use App\Http\Controllers\MyPostsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
@@ -90,11 +90,11 @@ Route::get('/dashboard', function(){
 })->middleware('auth');
 
 
-Route::get('dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
+Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
 
-Route::resource('dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
+Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
 
-Route::get('myposts', [MyPostController::class, 'index'])->middleware('auth');
+Route::resource('/myposts', MyPostsController::class)->middleware('auth');  
 
 // ! SEARCH, AUTHOR POSTS, AUTHOR PAGE, LOGIN REGIS AND ADMIN PAGE, CATEGORY CREATE PAGE

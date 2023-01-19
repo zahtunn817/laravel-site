@@ -9,7 +9,7 @@ use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
-class MyPostController extends Controller
+class MyPostsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -33,7 +33,9 @@ class MyPostController extends Controller
     public function create()
     {
         return view('myposts.create', [
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'tittle' => 'New Post',
+            'active' => 'write'
         ]);
     }
 
@@ -76,7 +78,9 @@ class MyPostController extends Controller
     public function show(Post $post)
     {
         return view('myposts.show', [
-            'post' => $post
+            'post' => $post,
+            'tittle' => $post->tittle,
+            'active' => 'write'
         ]);
     }
 
@@ -90,7 +94,9 @@ class MyPostController extends Controller
     {
         return view('myposts.edit', [
             'post' => $post,
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'tittle' => 'Edit',
+            'active' => 'write'
         ]);
     }
 

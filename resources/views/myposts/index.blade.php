@@ -14,7 +14,7 @@
         <a href="/dashboard/posts/create" class="btn btn-primary mb-3">Create new post</a>
         <div class="row">
             @foreach ($posts as $post)
-                <div class="col-md-4 mb-3">
+                <div class="col">
                     <div class="card">
                         <div class="position-absolute px-3 py-2" style="background-color: rgba(0,0,0,0.7)"><a href="/posts?category={{ $post->category->slug }}" class="text-decoration-none text-white">{{ $post->category->name }}</a></div>
     
@@ -34,9 +34,9 @@
                             </p>
 
                             <div class="d-block">
-                                <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info"><span data-feather="eye"></span></a>
-                                <a href="/dashboard/posts/{{ $post->slug }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
-                                <form action="/dashboard/posts/{{ $post->slug }}" method="post" class="d-inline">
+                                <a href="/myposts/{{ $post->slug }}" class="badge bg-info"><span data-feather="eye"></span></a>
+                                <a href="/myposts/{{ $post->slug }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
+                                <form action="/myposts/{{ $post->slug }}" method="post" class="d-inline">
                                     @method('delete')
                                     @csrf
                                     <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><span data-feather="x-circle"></span></button>

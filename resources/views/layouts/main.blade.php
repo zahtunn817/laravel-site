@@ -16,6 +16,9 @@
 
     <script src="https://unpkg.com/feather-icons"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.1.1/trix.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.1.1/trix.css">
+
   </head>
   <body>
 
